@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const config = require('config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -28,6 +29,6 @@ server.use(notFound);
 // Middleware d'erreur
 server.use(errors);
 
-server.listen(3000, () => {
-  console.log('Server started at port 3000');
+server.listen(config.get('port'), () => {
+  console.log(`Server started at port ${config.get('port')}`);
 });
